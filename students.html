@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f6f9;
+        }
+        h1 { color: #183153; }
+        form, table {
+            background: white;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th { background: #183153; color: white; }
+        .message { color: #18794e; }
+    </style>
+</head>
+<body>
+    <h1>Student Management</h1>
+    <p><a href="/">← Back to Dashboard</a></p>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <h2>Add Student</h2>
+    <form method="POST">
+        <input name="roll_number" placeholder="Roll Number" required>
+        <input name="full_name" placeholder="Full Name" required>
+        <input name="email" type="email" placeholder="Email" required>
+
+        <select name="department_id" required>
+            <option value="">Select Department</option>
+            {% for department in departments %}
+                <option value="{{ department.id }}">
+                    {{ department.name }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <input name="cgpa" type="number" min="0" max="10"
+               step="0.01" placeholder="CGPA" value="7.5" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Student Records</h2>
+    <form method="GET">
+        <input name="q" placeholder="Search name or roll number"
+               value="{{ search }}">
+        <button type="submit">Search</button>
+        <a href="/students">Clear</a>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>CGPA</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.roll_number }}</td>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.department.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.cgpa }}</td>
+                <td>
+    <a href="{{ url_for('edit_student', student_id=student.id) }}">
+        
+    </a>
+</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No students found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

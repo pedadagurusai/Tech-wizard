@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Placement Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <h2>🎓 Placement Portal</h2>
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Placements</a>
+            <a href="#">No-Dues</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <p class="subtitle">UNIVERSITY MANAGEMENT SYSTEM</p>
+            <h1>Placement & No-Dues Portal</h1>
+            <p>Track recruitment progress, placement results,
+               and departmental clearances in one place.</p>
+            <button onclick="alert('Login module coming next!')">
+                Get Started
+            </button>
+        </section>
+
+        <section class="stats">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p>30</p>
+            </div>
+            <div class="card">
+                <h3>Students Placed</h3>
+                <p>12</p>
+            </div>
+            <div class="card">
+                <h3>Total Offers</h3>
+                <p>15</p>
+            </div>
+            <div class="card">
+                <h3>No-Dues Pending</h3>
+                <p>10</p>
+            </div>
+        </section>
+
+        <section class="modules">
+            <h2>Portal Modules</h2>
+            <div class="module-grid">
+                <div class="module">
+                    <h3>📊 Placement Analytics</h3>
+                    <p>View department statistics and recruitment outcomes.</p>
+                </div>
+                <div class="module">
+                    <h3>🏢 Recruitment Drives</h3>
+                    <p>Manage companies, applications, and interview stages.</p>
+                </div>
+                <div class="module">
+                    <h3>📋 No-Dues Tracking</h3>
+                    <p>Monitor pending clearances and approval status.</p>
+                </div>
+                <div class="module">
+                    <h3>👨‍🎓 Student Management</h3>
+                    <p>Manage student profiles, batches, and eligibility.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+<!-- Scrolling Placement Training Banner -->
+<div class="placement-marquee">
+    <div class="marquee-track">
+        <span>PLACEMENT TRAINING</span>
+        <span class="marquee-star">✦</span>
+        <span>BUILD YOUR CAREER</span>
+        <span class="marquee-star">✦</span>
+        <span>INTERVIEW PREPARATION</span>
+        <span class="marquee-star">✦</span>
+
+        <span>PLACEMENT TRAINING</span>
+        <span class="marquee-star">✦</span>
+        <span>BUILD YOUR CAREER</span>
+        <span class="marquee-star">✦</span>
+        <span>INTERVIEW PREPARATION</span>
+        <span class="marquee-star">✦</span>
+    </div>
+</div>
+
+    <footer>
+        University Placement Portal | Academic Year 2026–27
+    </footer>
+</body>
+</html>
